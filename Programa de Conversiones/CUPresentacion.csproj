@@ -54,6 +54,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -77,6 +80,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CUDatos\CUDatos.csproj">
+      <Project>{6187ba7b-73e9-41f6-ba44-cab4ceb7e3ba}</Project>
+      <Name>CUDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CUEntidad\CUEntidad.csproj">
       <Project>{b14afa6b-00e2-4440-8790-18671ecf7c62}</Project>
       <Name>CUEntidad</Name>

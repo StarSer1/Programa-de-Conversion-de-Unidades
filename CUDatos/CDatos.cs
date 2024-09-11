@@ -11,7 +11,7 @@ namespace CUDatos
 {
     public class CDatos
     {
-        public static double ConversorDeHertz(double Hertz, int opcion)
+        public static double ConversorDeHertz(double Hertz, int opcion) //De otra hertz a hertz
         {
             if (opcion == 1)
                 return Hertz;
@@ -26,9 +26,9 @@ namespace CUDatos
             else return 0;
         }
 
-        public static double ConversorDeFrecuencia(double segundos, int opcion)
+        public static double ConversorDeFrecuencia(double hertz, int opcion) //Hertz
         {
-            double segundosI = 1 / segundos;
+            double segundosI = 1 / hertz;
             double milisegundos = segundosI * (Math.Pow(10, 3));    // 1 segundo = 1000 milisegundos
             double microsegundos = segundosI * (Math.Pow(10, 6));    // 1 segundo = 1,000,000 microsegundos
             double nanosegundos = segundosI * (Math.Pow(10, 9));     // 1 segundo = 1,000,000,000 nanosegundos
