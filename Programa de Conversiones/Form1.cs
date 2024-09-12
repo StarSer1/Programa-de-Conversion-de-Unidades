@@ -18,6 +18,8 @@ namespace Programa_de_Conversiones
         public Form1()
         {
             InitializeComponent();
+            CBHertz.SelectedIndex = 0;
+            CBSegs.SelectedIndex = 0;
         }
 
         public double CalcularResultadoSegs(double primerNum, int opcion)
@@ -54,18 +56,55 @@ namespace Programa_de_Conversiones
         {
             if(txtSegs.Text != string.Empty)
             {
-                txtHertz.Text = CalcularResultadoSegs(double.Parse(txtSegs.Text), CBHertz.SelectedIndex + 1).ToString();
+                if (txtSegs.Text != ".")
+                    txtHertz.Text = CalcularResultadoSegs(double.Parse(txtSegs.Text), CBHertz.SelectedIndex + 1).ToString();
             }
             else
-                txtHertz.Text = string.Empty;
+                txtSegs.Text = string.Empty;
         }
 
         private void txtHertz_TextChanged(object sender, EventArgs e)
         {
             if (txtHertz.Text != string.Empty)
             {
-                txtSegs.Text = CalcularResultadoHertz(double.Parse(txtHertz.Text), CBHertz.SelectedIndex + 1, CBSegs.SelectedIndex + 1).ToString();
+                if (txtHertz.Text != ".")
+                    txtSegs.Text = CalcularResultadoHertz(double.Parse(txtHertz.Text), CBHertz.SelectedIndex + 1, CBSegs.SelectedIndex + 1).ToString();
             }
+            else
+                txtHertz.Text = string.Empty;
+        }
+
+        private void CBHertz_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (txtHertz.Text != string.Empty)
+            {
+                if(txtHertz.Text != ".")
+                    txtSegs.Text = CalcularResultadoHertz(double.Parse(txtHertz.Text), CBHertz.SelectedIndex + 1, CBSegs.SelectedIndex + 1).ToString();
+            }
+            else
+                txtHertz.Text = string.Empty;
+        }
+
+        private void CBSegs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            if (txtSegs.Text != string.Empty)
+            {
+                if (txtSegs.Text != ".")
+                    txtHertz.Text = CalcularResultadoSegs(double.Parse(txtSegs.Text), CBHertz.SelectedIndex + 1).ToString();
+            }
+            else
+                txtSegs.Text = string.Empty;
+        }
+
+        private void txtSegs_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CLogica.SoloNums(sender, e);
+        }
+
+        private void txtHertz_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            CLogica.SoloNums(sender, e);
         }
     }
 }
